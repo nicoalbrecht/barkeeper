@@ -105,6 +105,11 @@ function renderAllIngredients() {
         ingredientSelects[id].amount = val;
     });
 
+    document.querySelector('#cocktail-image-input').addEventListener('change', ($event) => {
+        console.log($event);
+        document.querySelector('[for="cocktail-image-input"]').innerHTML = $event.target.value.substr($event.target.value.lastIndexOf('\\') + 1);
+    });
+
 
     document.querySelector('#add-ingredient-filter-btn').addEventListener('click', ($event) => {
         // preventDefault wird benötigt, da ein Click auf einen Button in eine Formular ein Submit Event auslöst.

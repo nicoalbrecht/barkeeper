@@ -22,14 +22,8 @@
 
         <section class="jumbotron text-center">
             <div class="container">
-                <h1>Tipps & Tricks</h1>
-                <p class="lead">
-                    Da wir alle erstmal lernen müssen wie man denn den perfekten Cocktail von zu Hause aus mixt,
-                    hier mal ein paar unserer Tipps und Tricks mit welchen es auf jeden Fall klappt
-                </P>
-                <p class="lead">
-                    Und mach dir keine Sorge - Übung macht den Meister!
-                </p>
+                <h1>Administration</h1>
+                <h2>Tipps & Tricks</h2>
             </div>
         </section>
 
@@ -39,7 +33,7 @@
                     <?php
                         foreach ($tipps as $tipp) {
                             echo '<div class="col-md-12">
-                                <div class="card border-light mb-4 ">
+                                <div class="card mb-4">
                                     <div class="card-body">
                                         <h4 class="card-title">
                                             ' . $tipp->getTitle() . '
@@ -47,7 +41,7 @@
                                         <p class="card-text">' . $tipp->getContent() . '</p>
                                         <p>Hat dir der Trick gefallen? Dann gib uns dein Like</p>
                                     </div>
-                                    <div class="card-footer bg-transparent text-muted">
+                                    <div class="card-footer text-muted">
                                         <button class="btn btn-outline-primary like-tip-btn" data-id="' . $tipp->getId() . '">
                                                 <i class="far fa-thumbs-up" data-id="' . $tipp->getId() . '"></i>
                                         </button> 

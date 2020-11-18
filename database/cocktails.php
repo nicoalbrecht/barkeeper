@@ -39,7 +39,6 @@ class Cocktails {
         return $ingredients;
     }
 
-
     public function findById($id) {
         $cocktail = new Cocktail();
         $stmt = $this->db->prepare("SELECT * FROM `cocktails` WHERE id=?");
@@ -55,6 +54,7 @@ class Cocktails {
             $cocktail->setPreparation($res["preparation"]);
             $cocktail->setImage($res["image"]);
             $cocktail->setAlcoholic($res["alcoholic"]);
+            $cocktail->setReleased($res["released"]);
             $cocktail->setIngredients($this->_getIngredients($id));
             return $cocktail;
         }
@@ -80,6 +80,7 @@ class Cocktails {
                 $i->setPreparation($cocktail["preparation"]);
                 $i->setImage($cocktail["image"]);
                 $i->setAlcoholic($cocktail["alcoholic"]);
+                $i->setReleased($cocktail["released"]);
                 $i->setIngredients($this->_getIngredients($cocktail["id"]));
                 array_push($cocktails, $i);
             }

@@ -1,5 +1,5 @@
 <?php
-require('database/ingredients.php');
+require($_SERVER["DOCUMENT_ROOT"].'/database/ingredients.php');
 $ingredientsFactory = new Ingredients();
 $ingredients = $ingredientsFactory->findAll();
 ?>
@@ -11,13 +11,13 @@ $ingredients = $ingredientsFactory->findAll();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap-select.min.css">
 </head>
 
 <body>
     <?php
-    include("includes/header.php");
+    include($_SERVER["DOCUMENT_ROOT"]."/includes/header.php");
     ?>
     <main role="main">
 
@@ -61,7 +61,7 @@ $ingredients = $ingredientsFactory->findAll();
 
     </main>
     <?php
-    include("includes/footer.php");
+    include($_SERVER["DOCUMENT_ROOT"]."/includes/footer.php");
     ?>
     <script>
         // Hässlicher Workaround
@@ -77,8 +77,8 @@ $ingredients = $ingredientsFactory->findAll();
             ?>
         ];
     </script>
-    <script src="assets/js/bootstrap-select.min.js"></script>
-    <script src="assets/js/cocktail-finder.js"></script>
+    <script src="/assets/js/bootstrap-select.min.js"></script>
+    <script src="/assets/js/cocktail-finder.js"></script>
 </body>
 
 </html>

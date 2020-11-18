@@ -1,6 +1,6 @@
 <?php
-require("database/cocktails.php");
-require("database/ingredients.php");
+require($_SERVER["DOCUMENT_ROOT"]."/database/cocktails.php");
+require($_SERVER["DOCUMENT_ROOT"]."/database/ingredients.php");
 $cocktailsFactory = new Cocktails();
 $id = $_GET["id"];
 $cocktail = $cocktailsFactory->findById($id);
@@ -13,12 +13,12 @@ $cocktail = $cocktailsFactory->findById($id);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
 </head>
 
 <body>
     <?php
-    include("includes/header.php");
+    include($_SERVER["DOCUMENT_ROOT"]."/includes/header.php");
     ?>
     <main role="main">
 
@@ -29,7 +29,7 @@ $cocktail = $cocktailsFactory->findById($id);
                     <?php echo $cocktail->getDescription(); ?>
                 </P>
                 <p class="mb-0">
-                    <?php echo '<img style="max-height: 400px;" src="assets/images/cocktails/' . $cocktail->getImage() . '">' ?>
+                    <?php echo '<img style="max-height: 400px;" src="/assets/images/cocktails/' . $cocktail->getImage() . '">' ?>
                 </p>
             </div>
         </section>
@@ -57,7 +57,7 @@ $cocktail = $cocktailsFactory->findById($id);
 
     </main>
     <?php
-    include("includes/footer.php");
+    include($_SERVER["DOCUMENT_ROOT"]."/includes/footer.php");
     ?>
 </body>
 

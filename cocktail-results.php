@@ -1,6 +1,6 @@
 <?php
-    require("database/cocktails.php");
-    require("database/ingredients.php");
+    require($_SERVER["DOCUMENT_ROOT"]."/database/cocktails.php");
+    require($_SERVER["DOCUMENT_ROOT"]."/database/ingredients.php");
     $cocktailsFactory = new Cocktails();
     $ingredientsFactory = new Ingredients();
     $ingredientIDs = [];
@@ -30,12 +30,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
 </head>
 
 <body>
     <?php
-        include("includes/header.php");
+        include($_SERVER["DOCUMENT_ROOT"]."/includes/header.php");
     ?>
     <main role="main">
 
@@ -72,20 +72,18 @@
                             </div>';
                         } else {
                             foreach ($cocktails as $key => $cocktail) {
-                                echo '<div class="col-md-4">
-                                    <a href="/cocktail.php?id='.$cocktail->getId().'">
+                                echo '<div class="col-md-6 col-lg-4">
                                         <div class="card mb-4 shadow-sm">
-                                            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="assets/images/cocktails/' . $cocktail->getImage() . '">
+                                            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="/assets/images/cocktails/' . $cocktail->getImage() . '">
                                             <div class="card-body">
-                                                <h5 class="card-title">' . $cocktail->getTitle() . '</h5>
+                                                <h5 class="card-title"><a href="/cocktail.php?id='.$cocktail->getId().'">' . $cocktail->getTitle() . '</a></h5>
                                                 <p class="card-text">' . $cocktail->getDescription() . '</p>
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <small class="text-muted">' . $cocktail->isAlcoholic() . '</small>
                                                 </div>
                                             </div>
                                         </div>
-                                    </a>
-                                </div>';
+                                    </div>';
                             }
                         }
                     ?>
@@ -95,7 +93,7 @@
 
     </main>
     <?php
-        include("includes/footer.php");
+        include($_SERVER["DOCUMENT_ROOT"]."/includes/footer.php");
     ?>
 </body>
 

@@ -1,5 +1,5 @@
 <?php
-    require('database/models/cocktail.php');
+    require($_SERVER["DOCUMENT_ROOT"].'/database/models/cocktail.php');
     $cocktail = new Cocktail();
     $cocktail->setTitle($_POST["title-input"]);
     $cocktail->setDescription($_POST["description-input"]);
@@ -19,14 +19,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/bootstrap-select.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 
 <body>
     <?php
-        include("includes/header.php");
+        include($_SERVER["DOCUMENT_ROOT"]."/includes/header.php");
     ?>
     <main role="main">
 
@@ -44,9 +44,9 @@
 
     </main>
     <?php
-        include("includes/footer.php");
+        include($_SERVER["DOCUMENT_ROOT"]."/includes/footer.php");
     ?>
-    <script src="assets/js/bootstrap-select.min.js"></script>
+    <script src="/assets/js/bootstrap-select.min.js"></script>
 </body>
 
 </html>

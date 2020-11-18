@@ -25,25 +25,14 @@ function isActive($linkPath) {
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item <?php isActive("/"); ?><?php isActive("/index.php"); ?>">
-                        <a class="nav-link" href="index.php">Home</span></a>
+                    <li class="nav-item <?php isActive("/admin/cocktails.php"); ?><?php isActive("/index.php"); ?>">
+                        <a class="nav-link" href="/admin/cocktails.php">Cocktails</span></a>
                     </li>
-                    <li class="nav-item <?php isActive("/cocktail-finder.php"); ?>">
-                        <a class="nav-link" href="cocktail-finder.php">Rezeptsuche</a>
-                    </li>
-                    <li class="nav-item <?php isActive("/own-recipe.php"); ?>">
-                        <a class="nav-link" href="own-recipe.php">Dein Rezept teilen</a>
-                    </li>
-                    <li class="nav-item <?php isActive("/tipps.php"); ?>">
-                        <a class="nav-link" href="tipps.php">Tipps & Tricks</a>
-                    </li>
-                    <li class="nav-item <?php isActive("/impress.php"); ?>">
-                        <a class="nav-link" href="impress.php">Impressum</a>
-                    </li>
-                    <li class="nav-item <?php isActive("/contact.php"); ?>">
-                        <a class="nav-link" href="contact.php">Kontakt</a>
+                    <li class="nav-item <?php isActive("/admin/ingredients.php"); ?>">
+                        <a class="nav-link" href="/admin/ingredients.php">Zutaten</a>
                     </li>
                 </ul>
+                <a class="btn btn-danger my-2 my-sm-0" href="/admin/logout.php">Logout</a>
             </div>
         </div>
     </nav>
