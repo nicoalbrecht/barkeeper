@@ -31,6 +31,9 @@ function isActive($linkPath) {
                     <li class="nav-item <?php isActive("/admin/ingredients.php"); ?>">
                         <a class="nav-link" href="/admin/ingredients.php">Zutaten</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.php">Zurück zur Website</a>
+                    </li>
                 </ul>
                 <a class="btn btn-danger my-2 my-sm-0" href="/admin/logout.php">Logout</a>
             </div>

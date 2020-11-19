@@ -13,7 +13,7 @@ class Cocktail {
     private $image;
     private $alcoholic;
     private $ingredients = [];
-    private $released;
+    private $released = false;
 
     function __construct($id = null, $title = null, $description = null, $preparation = null, $image = null, $alcoholic = null, $ingredients = null, $released = null)
     {
@@ -44,12 +44,13 @@ class Cocktail {
         }
     }
 
-    public function save() {
-        $stmt = $this->db->prepare("INSERT INTO `cocktails` (`title`, `description`, `preparation`, `image`, `alcoholic`) VALUES (?, ?, ?, NULL, TRUE)");
+    public function save($released = false) {
+        $this->released = $released;
+        $stmt = $this->db->prepare("INSERT INTO `cocktails` (`title`, `description`, `preparation`, `image`, `released`, `alcoholic`) VALUES (?, ?, ?, ?, ?,TRUE)");
         if($stmt == false) {
             print_r($this->db->error_list);
         }
-        $stmt->bind_param('sss', $this->title, $this->description, $this->preparation);
+        $stmt->bind_param('ssssi', $this->title, $this->description, $this->preparation, $this->image, $this->released);
         $succ = $stmt->execute();
         if($succ) {
             $this->id = $this->db->insert_id;
@@ -60,14 +61,31 @@ class Cocktail {
         }
     }
     public function update() {
-        $stmt = $this->db->prepare("UPDATE `cocktails` SET  `title`=?, `description`=?, `preparation`=?, `image`=?, `alcoholic`=?) WHERE `id`=?");
-        $stmt->bind_param('sssi', $this->title, $this->description, $this->preparation, $this->image, $this->dislalcoholicikes, $this->id);
-        $stmt->execute();
+        $stmt = $this->db->prepare("UPDATE `cocktails` SET  `title`=?, `description`=?, `preparation`=?, `image`=?, `released`=?) WHERE `id`=?");
+        if($stmt == false) {
+            print_r($this->db->error_list);
+        }
+        $stmt->bind_param('sssi', $this->title, $this->description, $this->preparation, $this->image, $this->released, $this->id);
+        $succ = $stmt->execute();
+        if($succ) {
+            $this->id = $this->db->insert_id;
+            foreach($this->ingredients as $ingredient) {
+                $ingredient->setCocktailId($this->id);
+                $ingredient->save();
+            }
+        }
     }
     public function delete() {
         $stmt = $this->db->prepare("DELETE FROM `cocktails` WHERE `id`=?");
         $stmt->bind_param('i', $this->id);
         $stmt->execute();        
+    }
+
+    public function publish() {
+        $this->released = true;
+    }
+    public function unpublish() {
+        $this->released = false;
     }
 
     public function getId() {

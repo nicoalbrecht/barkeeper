@@ -1,11 +1,14 @@
 <?php
     require($_SERVER["DOCUMENT_ROOT"]."/database/cocktails.php");
     require($_SERVER["DOCUMENT_ROOT"]."/database/ingredients.php");
+
     $cocktailsFactory = new Cocktails();
     $ingredientsFactory = new Ingredients();
+
     $ingredientIDs = [];
     $ingredients = [];
     $containAllIngredients = false;
+
     foreach($_POST as $key => $value) {
         if($key === "all-ingredients-required") {
             if($value === "on") {

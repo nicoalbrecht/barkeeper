@@ -1,4 +1,9 @@
 <?php
+    session_start();
+    if($_SESSION["loggedIn"] !== true){
+        header("Location: /admin/login.php");
+        exit();
+    }
     require($_SERVER["DOCUMENT_ROOT"].'/database/tipps.php');
     $tippsFactory = new Tipps();
     $tipps = $tippsFactory->findAll();

@@ -1,5 +1,11 @@
 <?php
-
+if($_SERVER['REQUEST_METHOD'] == "GET") {
+    session_start();
+    if($_SESSION["loggedIn"] === true){
+        header("Location: /admin/cocktails.php");
+        exit();
+    }
+}
 $loginFailed = false;
 
 if($_SERVER['REQUEST_METHOD'] == "POST") {

@@ -78,7 +78,7 @@ $ingredients = $ingredientsFactory->findAll();
                     </div>
                     <div class="form-group">
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="cocktail-image-input">
+                            <input type="file" class="custom-file-input" id="cocktail-image-input" name="cocktail-image-input">
                             <label class="custom-file-label" for="cocktail-image-input">Bild von Cocktail</label>
                         </div>
                     </div>

@@ -1,11 +1,16 @@
 <?php
-require($_SERVER["DOCUMENT_ROOT"]."/database/cocktails.php");
-require($_SERVER["DOCUMENT_ROOT"]."/database/ingredients.php");
-$ingredientsFactory = new Ingredients();
-$ingredients = $ingredientsFactory->findAll();
-$cocktailsFactory = new Cocktails();
-$id = $_GET["id"];
-$cocktail = $cocktailsFactory->findById($id);
+    session_start();
+    if($_SESSION["loggedIn"] !== true){
+        header("Location: /admin/login.php");
+        exit();
+    }
+    require($_SERVER["DOCUMENT_ROOT"]."/database/cocktails.php");
+    require($_SERVER["DOCUMENT_ROOT"]."/database/ingredients.php");
+    $ingredientsFactory = new Ingredients();
+    $ingredients = $ingredientsFactory->findAll();
+    $cocktailsFactory = new Cocktails();
+    $id = $_GET["id"];
+    $cocktail = $cocktailsFactory->findById($id);
 ?>
 
 <!DOCTYPE html>
