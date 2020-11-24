@@ -50,9 +50,9 @@
                                         </div>
                                         <div class="card-footer text-right">';
                             if($cocktail->getReleased() === 1) {
-                                $html = $html .'<button type="button" class="btn btn-danger btn-sm">Ausblenden</button>';
+                                $html = $html .'<a href="/admin/cocktail-release.php?id='.$cocktail->getId().'&unpublish=true"><button type="button" class="btn btn-danger btn-sm">Ausblenden</button></a>';
                             } else {
-                                $html = $html .'<button type="button" class="btn btn-secondary btn-sm">Veröffentlichen</button>';
+                                $html = $html .'<a href="/admin/cocktail-release.php?id='.$cocktail->getId().'&unpublish=false"><button type="button" class="btn btn-secondary btn-sm">Veröffentlichen</button></a>';
                             }
                             $html = $html .'</div>
                                     </div>
