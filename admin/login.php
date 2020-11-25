@@ -1,11 +1,13 @@
 <?php
 if($_SERVER['REQUEST_METHOD'] == "GET") {
     session_start();
-    $_SESSION["loggedIn"] = false;
-    if($_SESSION["loggedIn"] === true){
-        header("Location: /admin/cocktails.php");
-        exit();
+    if(isset($_SESSION["loggedIn"])){
+        if($_SESSION["loggedIn"] === true){
+            header("Location: /admin/cocktails.php");
+            exit();
+        }
     }
+   
 }
 $loginFailed = false;
 
